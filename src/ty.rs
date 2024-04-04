@@ -757,129 +757,129 @@ pub struct Run {
 pub struct StopsIdOpts {
     /// Indicates if stop location information will be returned (default = false)
     #[serde(skip_serializing_if = "Option::is_none")]
-    stop_location: Option<bool>,
+    pub stop_location: Option<bool>,
     /// Indicates if stop amenity information will be returned (default = false)
     #[serde(skip_serializing_if = "Option::is_none")]
-    stop_amenities: Option<bool>,
+    pub stop_amenities: Option<bool>,
     /// Indicates if stop accessibility information will be returned (default = false)
     #[serde(skip_serializing_if = "Option::is_none")]
-    stop_accessibility: Option<bool>,
+    pub stop_accessibility: Option<bool>,
     /// Indicates if stop contact information will be returned (default = false)
     #[serde(skip_serializing_if = "Option::is_none")]
-    stop_contact: Option<bool>,
+    pub stop_contact: Option<bool>,
     /// Indicates if stop ticket information will be returned (default = false)
     #[serde(skip_serializing_if = "Option::is_none")]
-    stop_ticket: Option<bool>,
+    pub stop_ticket: Option<bool>,
     /// Incdicates whether the stop_id is a GTFS ID or not
     #[serde(skip_serializing_if = "Option::is_none")]
-    gtfs: Option<bool>,
+    pub gtfs: Option<bool>,
     /// Indicates if stop staffing information will be returned (default = false)
     #[serde(skip_serializing_if = "Option::is_none")]
-    stop_staffing: Option<bool>,
+    pub stop_staffing: Option<bool>,
     /// Indicates if stop disruption information will be returned (default = false)
     #[serde(skip_serializing_if = "Option::is_none")]
-    stop_disruptions: Option<bool>,
+    pub stop_disruptions: Option<bool>,
 }
 
 #[derive(Serialize, Debug, Default)]
 pub struct StopsRouteIdOpts {
     #[serde(skip_serializing_if = "Option::is_none")]
-    direction_id: Option<i32>,
+    pub direction_id: Option<i32>,
     #[serde(skip_serializing_if = "Option::is_none")]
-    stop_disruptions: Option<bool>,
+    pub stop_disruptions: Option<bool>,
     #[serde(skip_serializing_if = "Option::is_none")]
-    include_geopath: Option<bool>,
+    pub include_geopath: Option<bool>,
     #[serde(serialize_with = "ser_iso_8601")]
     #[serde(skip_serializing_if = "Option::is_none")]
-    geopath_utc: Option<NaiveDateTime>,
+    pub geopath_utc: Option<NaiveDateTime>,
 }
 
 #[derive(Serialize, Debug, Default)]
 pub struct StopsLocationOpts {
     #[serde(skip_serializing_if = "Option::is_none")]
-    route_types: Option<Vec<RouteType>>,
+    pub route_types: Option<Vec<RouteType>>,
     #[serde(skip_serializing_if = "Option::is_none")]
-    max_results: Option<i32>,
+    pub max_results: Option<i32>,
     #[serde(skip_serializing_if = "Option::is_none")]
-    max_distance: Option<i32>,
+    pub max_distance: Option<i32>,
     #[serde(skip_serializing_if = "Option::is_none")]
-    stop_disruptions: Option<bool>,
+    pub stop_disruptions: Option<bool>,
 }
 
 
 #[derive(Deserialize, Debug)]
 pub struct StopResponse {
-    stop: Stop,
-    disriptions: Option<Value>, //TODO: T
-    status: Status,
+    pub stop: Stop,
+    pub disriptions: Option<Value>, //TODO: T
+    pub status: Status,
 }
 
 #[derive(Deserialize, Debug)]
 pub struct StopAccessibility {
-    lighting: bool,
-    platform_number: i32,
-    autio_customer_information: bool,
-    escalator: bool,
-    hearing_loop: bool,
-    life: bool,
-    stairs: bool,
-    stop_accessible: bool,
-    tactile_ground_surface_indicator: bool,
-    waiting_room: bool,
-    wheelchair: WheelchairAccessibility,
+    pub lighting: bool,
+    pub platform_number: i32,
+    pub autio_customer_information: bool,
+    pub escalator: bool,
+    pub hearing_loop: bool,
+    pub life: bool,
+    pub stairs: bool,
+    pub stop_accessible: bool,
+    pub tactile_ground_surface_indicator: bool,
+    pub waiting_room: bool,
+    pub wheelchair: WheelchairAccessibility,
 }
 
 #[derive(Deserialize, Debug)]
 pub struct WheelchairAccessibility {
-    accessible_ramp: bool,
-    parking: bool,
-    telephone: bool,
-    toilet: bool,
-    low_ticket_counter: bool,
-    manouvering: bool,
-    raised_platform: bool,
-    ramp: bool,
-    secondary_path: bool,
-    raised_platform_shelter: bool,
-    steep_ramp: bool,
+    pub accessible_ramp: bool,
+    pub parking: bool,
+    pub telephone: bool,
+    pub toilet: bool,
+    pub low_ticket_counter: bool,
+    pub manouvering: bool,
+    pub raised_platform: bool,
+    pub ramp: bool,
+    pub secondary_path: bool,
+    pub raised_platform_shelter: bool,
+    pub steep_ramp: bool,
 }
 
 #[derive(Deserialize, Debug)]
 struct StopAmenities {
-    toilet: bool,
-    taxi_rank: bool,
-    car_parking: bool,
-    cctv: bool,
+    pub toilet: bool,
+    pub taxi_rank: bool,
+    pub car_parking: bool,
+    pub cctv: bool,
 }
 
 #[derive(Deserialize, Debug)]
 struct Gps {
-    latitude: f64,
-    longitude: f64,
+    pub latitude: f64,
+    pub longitude: f64,
 }
 
 #[derive(Deserialize, Debug)]
 pub struct StopsResponse {
-    stops: Vec<Stop>,
-    disruptions: Option<Value>, //TODO: T
-    geopath: Option<Vec<Value>>, //TODO: T
-    status: Status,
+    pub stops: Vec<Stop>,
+    pub disruptions: Option<Value>, //TODO: T
+    pub geopath: Option<Vec<Value>>, //TODO: T
+    pub status: Status,
 }
 
 #[derive(Deserialize, Debug)]
 struct Stop {
-    disruption_ids: Option<Vec<i32>>,
-    station_type: String,
-    station_description: String,
-    route_type: RouteType,
-    stop_location: Option<Gps>,
-    stop_amenities: Option<StopAmenities>,
-    stop_accessibility: Option<StopAccessibility>,
-    stop_staffing: Option<Value>, // TODO: T
-    routes: Vec<i32>,
-    stop_id: i32,
-    stop_name: String,
-    stop_landmark: String,
+    pub disruption_ids: Option<Vec<i32>>,
+    pub station_type: String,
+    pub station_description: String,
+    pub route_type: RouteType,
+    pub stop_location: Option<Gps>,
+    pub stop_amenities: Option<StopAmenities>,
+    pub stop_accessibility: Option<StopAccessibility>,
+    pub stop_staffing: Option<Value>, // TODO: T
+    pub routes: Vec<i32>,
+    pub stop_id: i32,
+    pub stop_name: String,
+    pub stop_landmark: String,
 }
 
 #[derive(Deserialize, Debug)]
