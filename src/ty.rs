@@ -845,7 +845,7 @@ pub struct WheelchairAccessibility {
 }
 
 #[derive(Deserialize, Debug)]
-struct StopAmenities {
+pub struct StopAmenities {
     pub toilet: bool,
     pub taxi_rank: bool,
     pub car_parking: bool,
@@ -853,7 +853,7 @@ struct StopAmenities {
 }
 
 #[derive(Deserialize, Debug)]
-struct Gps {
+pub struct Gps {
     pub latitude: f64,
     pub longitude: f64,
 }
@@ -867,7 +867,7 @@ pub struct StopsResponse {
 }
 
 #[derive(Deserialize, Debug)]
-struct Stop {
+pub struct Stop {
     pub disruption_ids: Option<Vec<i32>>,
     pub station_type: String,
     pub station_description: String,
