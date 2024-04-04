@@ -883,6 +883,28 @@ pub struct Stop {
 }
 
 #[derive(Deserialize, Debug)]
+pub struct StopLocation {
+    pub disruption_ids: Option<Vec<i32>>,
+    pub stop_distance: i32,
+    pub stop_suburb: String,
+    pub stop_name: String,
+    pub stop_id: i32,
+    pub route_type: RouteType,
+    pub routes: Value, //TODO: T
+    pub stop_latitide: f64,
+    pub stop_longitude: f64,
+    pub stop_landmark: String,
+    pub stop_sequence: i32,
+}
+
+#[derive(Deserialize, Debug)]
+pub struct StopsLocationResponse {
+    pub stops: Vec<StopLocation>,
+    pub disruptions: Value, //TODO: T
+    pub status: Status,
+}
+
+#[derive(Deserialize, Debug)]
 pub struct VehiclePosition {
     /// Geographic coordinate of latitude of the vehicle when known.
     pub latitude: Option<f64>,

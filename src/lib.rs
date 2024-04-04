@@ -318,8 +318,7 @@ impl Client {
     }
 
     /// All stops near the specified location.
-    pub async fn stops_location(&self, latitude: f64, longitude: f64, options: StopsLocationOpts) -> Result<StopsResponse> {
+    pub async fn stops_location(&self, latitude: f64, longitude: f64, options: StopsLocationOpts) -> Result<StopsLocationResponse> {
         self.rq(format!("v3/stops/location/{latitude},{longitude}?{}", to_query(options))).await
     }
-
 }
