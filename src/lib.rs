@@ -304,4 +304,22 @@ impl Client {
         ))
         .await
     }
+
+    /* > Stops */
+
+    /// Stop location, amenity and accessibility facility information for the specified stop (metropolitan and V/Line stations only).
+    pub async fn stops_stop_id(&self, stop_id: i32, route_type: RouteType, options: StopsIdOpts) -> Result<StopResponse> {
+        self.rq(format!("v3/stops/{stop_id}/route_type/{}?{}", route_type.as_number(), to_query(options))).await
+    }
+
+    /// All stops on the specified route.
+    pub async fn stops_route_id(&self, route_id: i32, route_type: RouteType, options: StopsRouteIdOpts) -> Result<StopsResponse> {
+        self.rq(format!("v3/stops/route/{route_id}/route_type/{}?{}", route_type.as_number(), to_query(options))).await
+    }
+
+    /// All stops near the specified location.
+    pub async fn stops_location(&self, latitude: f64, longitude: f64, options: StopsLocationOpts) -> Result<StopsResponse> {
+        self.rq(format!("v3/stops/location/{latitude},{longitude}?{}", to_query(options))).await
+    }
+
 }

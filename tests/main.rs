@@ -7,13 +7,12 @@ pub mod test {
     static CLIENT: Lazy<Client> = Lazy::new(|| {
         dotenv().ok();
         Client::new(
-            std::env::var("DEVID").unwrap(),
-            std::env::var("KEY").unwrap(),
+            std::env::var("DEVID").expect("could not find DEVID env var"),
+            std::env::var("KEY").expect("could not find KEY env var"),
         )
     });
 
     //
-
     #[tokio::test]
     pub async fn test() {
         println!(
